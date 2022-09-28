@@ -12,11 +12,11 @@ if($_GET){
                 endereco.id AS id_endereco,
                 endereco.endereco
             FROM
-                pessoas
+                testando.pessoas
                     LEFT JOIN 
-                email ON (pessoas.id = email.id_pessoa)
+                testando.email ON (pessoas.id = email.id_pessoa)
                     LEFT JOIN
-                endereco ON (pessoas.id = endereco.id_pessoa)
+                testando.endereco ON (pessoas.id = endereco.id_pessoa)
             WHERE
                 pessoas.id = :id
          
@@ -61,7 +61,7 @@ if ($_POST){
     $endereco   = ((!empty($_POST['fEndereco']))? addslashes($_POST['fEndereco']) : '');
  
     $data       = date("Y-m-d"); 
-    $qry_insert ="  INSERT INTO pessoas 
+    $qry_insert ="  INSERT INTO testando.pessoas 
                     (
                         nome,dt_insercao
                     )
@@ -90,7 +90,7 @@ if ($_POST){
     $id_pessoa = $pdo->lastInsertId();
   
     if (!empty($email)){
-        $qry_insert ="  INSERT INTO email 
+        $qry_insert ="  INSERT INTO testando.email 
                         (
                             id_pessoa,contato
                         )
@@ -117,7 +117,7 @@ if ($_POST){
         }
     }
     if (!empty($endereco)){
-        $qry_insert ="  INSERT INTO endereco 
+        $qry_insert ="  INSERT INTO testando.endereco 
                         (
                             id_pessoa,endereco
                         )

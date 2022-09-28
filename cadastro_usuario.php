@@ -10,11 +10,11 @@
                 email.contato,
                 endereco.endereco
             FROM
-                pessoas
+                testando.pessoas
                     LEFT JOIN 
-                email ON (pessoas.id = email.id_pessoa)
+                testando.email ON (pessoas.id = email.id_pessoa)
                     LEFT JOIN
-                endereco ON (pessoas.id = endereco.id_pessoa)
+                testando.endereco ON (pessoas.id = endereco.id_pessoa)
             ORDER BY 
                 pessoas.dt_insercao,
                 pessoas.id
